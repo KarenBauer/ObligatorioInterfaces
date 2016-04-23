@@ -21,8 +21,9 @@ Example:
 @demo
 -->
 <dom-module id="comment-card">
-  <style>
-    :host {
+
+<style>
+  :host {
       display: block;
       box-sizing: border-box;
       margin: 1em;
@@ -53,10 +54,12 @@ Example:
       font-weight: 300;
       margin: 1em 1em 1em 3.5em;
     }
-  </style>
+
+</style>
+  
 
 <template>
-    <iron-media-query query="[[ mediaQuery ]]" 
+ <iron-media-query query="[[ mediaQuery ]]" 
                       query-matches="{{ tooSmall }}"></iron-media-query>
     <div id="author-container">
       <iron-image src="[[ author.image ]]" sizing="cover"></iron-image>
@@ -133,3 +136,4 @@ Example:
     }
   });
 </script>
+

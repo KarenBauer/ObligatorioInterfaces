@@ -1,0 +1,79 @@
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+<dom-module id="footer">
+
+  <template>
+    <style>
+      paper-toolbar.down {
+        --paper-toolbar-background: black;
+        color:white;
+        font-weight: bold;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 1.2rem;
+        padding-bottom: 80px;
+        padding-top: 150px;
+      }
+
+      .title, .follow{
+        color: #ec6262;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.4;
+      }
+
+      p {
+        font-family: Roboto;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 0.5rem;
+        margin-bottom: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .follow{
+        padding-left: 500px;
+      }
+
+      .contact{
+        padding-left: 200px;
+      }
+
+    </style>
+  
+    <paper-toolbar class="down">
+    <div class="contact">
+      <span class="title">Contact Us</span>
+      <paper-icon-button class="follow">Follow Us!</paper-icon-button>
+      <p>1317 Goshen Street, Unit 17C</p>
+      <p>San Diego, CA, 92110</p>
+      <p>1-347-567-8670</p>
+      <p>info@bookshop.com</p>
+    </div>
+  </paper-toolbar>
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "footer",
+
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+        greeting: {
+          type: String,
+          value: "Hello!"
+        }
+      }
+    });
+  </script>
+
+</dom-module>

@@ -1,0 +1,53 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../paper-button/paper-icon-button.html">
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<dom-module id="toolbar">
+
+  <template>
+    <style>
+      paper-toolbar.up {
+	    --paper-toolbar-background: black;
+	    color:white;
+	    font-weight: bold;
+	    font-family: Montserrat;
+	    font-weight: 600;
+	    font-size: 1.2rem;
+	    --paper-toolbar-title: {
+	      color: #ec6262;
+	      font-weight: bold;
+	      font-family: Montserrat;
+	      font-size: 1.5rem;
+	    };
+	  }
+    </style>
+  
+    <paper-toolbar class="up">
+	    <span class="title">Bookshop</span>
+	    <paper-button>AUTHOR</paper-button>
+	    <paper-button>AWARDS</paper-button>
+	    <paper-button>BOOKS</paper-button>
+	    <paper-button>CONTACT US</paper-button>
+  	</paper-toolbar>
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "element-name",
+
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+        greeting: {
+          type: String,
+          value: "Hello!"
+        }
+      }
+    });
+  </script>
+
+</dom-module>
