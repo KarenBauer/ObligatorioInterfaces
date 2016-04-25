@@ -10,17 +10,152 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+ 	<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="toolbar-element.html">
 
-  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../iron-component-page/iron-component-page.html">
+ 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+ 	<style>
+        	.main-page{
+        		font-family: Montserrat;
+        	}
+        	#container-author{
+        		background: white;
+        		float: center; 
+        		border: 30px 50px 50px 30px;  		    		    	
+        	}	
+        	.avatar {
+         		width: 6em;
+          		height: 6em;
+          		border-radius: 3em;
+                float: center;
+        	}
+        	.titles{
+        		font-weight: 800;
+        		font-size: 20px;
+        	}
+        	#author-subtitle{
+        		border: 25px 0 0 10px;
+        		font-weight: 800;
+        		font-size: 15px;
+        	}
+        	#author-description{
+        		border: 10px 0 0 10px;
+        		font-weight: 400;
+        		font-size: 13px;
+        	}
+        	#author-data{
+        		border: 10px 0 0 30px;
+        		font-weight: 400;
+        		font-size: 13px;
+        	}
 
+        	#container-awards{
+    			background: rgb(227,227,227);
+        	}
+        	.awards{
+        		border: 50px 0 0 30px;
+                display: inline;
+        	}
+        	.award-img{
+        		float:center;
+        	}
+        	.award-title{
+        		float:center;
+        		font-weight:700;
+        		font-size: 15px;
+        	}
+        	.award-p{
+        		float:center;
+        		font-weight:400;
+        		font-size: 13px;
+        	}
+
+        	#container-sentence{
+    			background: white; 
+        	}
+        	.sentence{
+        		font-weight:600;
+        		font-size: 23px;
+        	}
+
+        	#container-books{
+    			background: black; 
+        	}
+        	.titles-black{
+        		font-weight: 800;
+        		font-size: 20px;
+        		color:white;
+        	}
+        </style>
 </head>
-<body>
-  <!--iron-component-page src="toolbar.html"></iron-component-page-->
-  <iron-component-page src="comment-card.html"></iron-component-page>
 
+
+    
+
+<body>
+    <toolbar-element></toolbar-element>
+  	<div class="main-page">
+	    <div id="container-author">
+	    	<div id="author-avatar">
+	   			<img src="images/jkr_avatar.jpg" class="avatar">
+	   		</div>
+	   		<div class="titles"> JOANNE K. ROWLING </div>
+	   		<div id="author-subtitle"> THE WOMAN </div>
+	   		<div id="author-description">
+	   			Joanne K. Rowling is a British novelist, author and writer, best known as the "mother, of the Harry Potter series. Her books have gained worldwide attention, won multiple awards, and sold more than 400 million copies. 
+	   		</div>
+	   		<div id="author-data">
+	   			Born in 1963 in Yale, Gloucesterschire, England
+	   			Exeter University Alumni
+	   		</div>
+	    </div>
+
+	    <div id="container-awards">
+	    	<div class="titles"> 
+	    		<p>AWARDS AND RECOGNITIONS</p> 
+	    	</div>
+		    <div class="awards">
+		    	<div id="award-firstplace">
+		    		<img src="images/jkr_avatar.jpg" class="award-img">
+		    		<div class="award-title">FIRST PLACE</div>
+		    		<p class="award-p">JK Rowling gain the first place of every writers contest that took place in Yale, Gloucestershire, Engalnd.</p>
+		    	</div>
+		    	<div id="award-goldenoscar">
+		    		<img src="images/jkr_avatar.jpg" class="award-img">
+		    		<div class="award-title">GOLDEN OSCAR</div>
+		    		<p class="award-p">The movies of the books she wrote won several awards. One of the most important is the Golden Oscar. Turn down for what ;)</p>
+		    	</div>
+		    	<div id="award-iabu">
+		    		<img src="images/jkr_avatar.jpg" class="award-img">
+		    		<div class="award-title">IABU</div>
+		    		<p class="award-p">She is recognized for being part of the international Association of Book Authors (IABU). She is in the 14th position in the ranking.</p>
+		    	</div>
+		    	<div id="award-fanpage">
+		    		<img src="images/jkr_avatar.jpg" class="award-img">
+		    		<div class="award-title">BEST FAN PAGE</div>
+		    		<p class="award-p">Facebook give her an award for being the best fan page for writers and authors in the entire United States of America.</p>
+		    	</div>
+	    	</div>
+	    </div>
+
+	    <div id="container-sentence">
+	    	<p class="sentence">"My job is to make images and leave the decision-making and conclusion-drawing to other people"</p>
+	    	<div class="titles"> JOANNE K. ROWLING </div>
+	    </div>
+
+	    <div id="container-books">
+	    	<div class="titles-black"> 
+	    		<p>BOOKS</p> 
+	    	</div>
+	    </div>
+    </div>
 </body>
+    
+<footer>
+
+</footer>
 </html>
