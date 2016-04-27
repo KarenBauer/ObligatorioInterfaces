@@ -1,0 +1,111 @@
+<link rel="import" href="../paper-card/paper-card.html">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<dom-module id="book-detail">
+    
+<style is="custom-style">
+  .book{
+    margin-left: 200px;
+  }
+  .book-image {
+    background-size: cover;
+    float: left;
+    padding-right: 70px;
+    margin-top: 50px;
+  }
+  .book-content{
+    text-align: left;
+    float: left;
+    margin-top: 50px;
+    width: 50%;
+  }
+  .book-header{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 1.0rem;
+    line-height: 1.8;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: #2d2d2d;
+  }
+  .book-description{
+    font-family: Roboto;
+    font-size: 1.0rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: black;
+    display: block;
+  }
+  .book-price{
+    font-family: Roboto;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    color: #f14646;
+    font-weight: bold;
+  }
+  .book-buy{
+    float: none;
+    display: block;
+    margin-top: 1rem;
+    padding: 20px;
+    max-width: 170px;
+    font-family: Montserrat;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-radius: 4px;
+  }
+  .book-header { @apply(--paper-font-headline); }
+  iron-icon.star {
+    --iron-icon-width: 16px;
+    --iron-icon-height: 16px;
+    color: var(--paper-amber-500);
+  }
+  iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+</style>
+
+
+<template>
+  <div class="book">
+    <div class="book-image">
+      <img src="images/Harry_Potter.jpg">
+    </div>
+    <div class="book-content">
+      <div class="book-rating">
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+      </div>
+      <div class="book-header">Harry Potter and the Sorcerer's Stone
+      </div>
+      <p class="book-description">Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.
+      </p>
+      <p class="book-price">$450</p>
+      <p class="book-availability">Available</p>
+      <div class="buy-button">
+        <paper-button class="book-buy">Buy</paper-button>
+      </div>
+    </div>
+    
+  </div>
+
+    <div>{{greeting}}</div> <!-- data bindings in local DOM -->
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "book-detail",
+
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+      }
+    });
+  </script>
+
+</dom-module>
