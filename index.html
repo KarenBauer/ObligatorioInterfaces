@@ -16,6 +16,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
  	<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
     <link rel="import" href="toolbar-element.html">
+    <link rel="import" href="book-detail.html">
+    <link rel="import" href="../paper-button/paper-button.html">
 
  	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
  	<style>
@@ -98,6 +100,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <body>
     <toolbar-element></toolbar-element>
+    <paper-button on-click="prueba" raised >DETAIL</paper-button>
   	<div class="main-page">
 	    <div id="container-author">
 	    	<div id="author-avatar">
@@ -153,10 +156,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	    	</div>
 	    </div>
     </div>
-    <footer-element></footer-element>
 </body>
     
 <footer>
 
 </footer>
+<script>
+function link_detail(book_id){
+    window.location = "detail.html?id=" + book_id;
+} 
+</script>
 </html>

@@ -11,28 +11,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>comment-card Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../comment-card.html">
+    <link rel="import" href="book-detail.html">
   </head>
   <body>
-    <p>An example of <code>&lt;comment-card&gt;</code>:</p>
-
-    <comment-card media-query="(max-width: 400px)"
-                  author='{"name": "Lord Meowser", "image": "https://imgflip.com/s/meme/Ancient-Aliens.jpg"}'>
-      Hello, I'm a comment
-    </comment-card>
-
-    <template is="dom-repeat"  items="[[comments]]">
-      <comment-card media-query="(max-width: 400px)"
-                    author='[[item]]'>
+    <template is="dom-repeat"  items="[[books]]">
+      <book-detail detail='[[item]]'>
         Hello, I'm a comment
-      </comment-card>
+      </book-detail>
     </template>
-
-    <comment-card>
-      and I'm a comment with default values
-    </comment-card>
   </body>
 </html>

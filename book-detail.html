@@ -1,4 +1,5 @@
 <link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-button/paper-button.html">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
@@ -56,7 +57,6 @@
     background-color: black;
     border-radius: 4px;
   }
-  .book-header { @apply(--paper-font-headline); }
   iron-icon.star {
     --iron-icon-width: 16px;
     --iron-icon-height: 16px;
@@ -67,9 +67,18 @@
 
 
 <template>
+  <iron-ajax auto
+             url="api/books.json?[[ _selectedBookId ]]"
+             params=""
+             handle-as="json"
+             last-response="{{ _booksArray }}"
+             debounce-duration="300">
+  </iron-ajax>
+  <template is="dom-repeat"
+                items="[[ _booksArray ]]">
   <div class="book">
     <div class="book-image">
-      <img src="images/Harry_Potter.jpg">
+      <img src="[[item.image]]">
     </div>
     <div class="book-content">
       <div class="book-rating">
@@ -79,33 +88,53 @@
         <iron-icon class="star" icon="star"></iron-icon>
         <iron-icon class="star" icon="star"></iron-icon>
       </div>
-      <div class="book-header">Harry Potter and the Sorcerer's Stone
-      </div>
-      <p class="book-description">Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.
-      </p>
-      <p class="book-price">$450</p>
-      <p class="book-availability">Available</p>
+      <div class="book-header">[[item.title]]</div>
+      <p class="book-description">[[item.description]]</p>
+      <p class="book-price">[[item.price]]</p>
+      <p class="book-availability">[[item.availability]]</p>
       <div class="buy-button">
         <paper-button class="book-buy">Buy</paper-button>
       </div>
-    </div>
-    
+    </div> 
   </div>
-
-    <div>{{greeting}}</div> <!-- data bindings in local DOM -->
   </template>
+</template>
+
 
   <script>
     // element registration
     Polymer({
       is: "book-detail",
-
-      // add properties and methods on the element's prototype
-
       properties: {
-        // declare properties for the element's public API
+      detail: {
+        type: Object,
+        // Use `value` to provides a default value for a property, by setting it
+        // on your element's prototype.
+        //
+        // If you provide a function, as we do here, Polymer will call that
+        // _per element instance_.
+        //
+        // We do that to ensure that each element gets its own copy of the
+        // value, rather than having it shared across all instances (via the
+        // prototype).
+        value: function() {
+          return {
+            title: "Harry Potter and the Sorcerer's Stone",
+            description: "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.",
+            price: "$450",
+            availability: "Available",
+            image: "images/book_1.jpg",
+          };
+        }
+      },
+      _selectedBookId: {
+        type: Number,
+        value: function() {
+          return 1;
+        }
       }
-    });
+    }
+  });
   </script>
 
 </dom-module>
