@@ -5,16 +5,16 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 <dom-module id="toolbar-element">
-
   <template>
     <style>
       paper-toolbar.up {
 	    --paper-toolbar-background: black;
-	    color:white;
 	    font-weight: bold;
 	    font-family: Montserrat;
 	    font-weight: 600;
 	    font-size: 1.2rem;
+      top: 0;
+      width: 100%;
 	    --paper-toolbar-title: {
 	      color: #ec6262;
 	      font-weight: bold;
@@ -22,14 +22,22 @@
 	      font-size: 1.5rem;
 	    };
 	  }
+
+    a{
+      text-decoration: none;
+      color: white;
+    }
+    a:hover{
+      color: #ec6262;
+    }
     </style>
   
     <paper-toolbar class="up">
 	    <span class="title">Bookshop</span>
-	    <paper-button>AUTHOR</paper-button>
-	    <paper-button>AWARDS</paper-button>
-	    <paper-button>BOOKS</paper-button>
-	    <paper-button>CONTACT US</paper-button>
+	    <paper-button><a href="#author">AUTHOR</a></paper-button>
+	    <paper-button><a href="#awards">AWARDS</a></paper-button>
+	    <paper-button><a href="#books">BOOKS</a></paper-button>
+	    <paper-button><a href="#contactus">CONTACT US</a></paper-button>
   	</paper-toolbar>
   </template>
 

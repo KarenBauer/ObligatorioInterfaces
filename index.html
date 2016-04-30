@@ -17,9 +17,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  	<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
     <link rel="import" href="toolbar-element.html">
     <link rel="import" href="footer-element.html">
-    <link rel="import" href="../paper-button/paper-button.html">
-    <link rel="import" href="../iron-image/iron-image.html">
-    <link rel="import" href="../iron-list/iron-list.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/iron-image/iron-image.html">
 
  	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
  	<style>
@@ -66,18 +65,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 width: 50%;
                 margin: 0 auto;
         	}
-
             .text-author{
                 width: 50%;
                 margin: 0 auto;
                 line-height: 1.8; 
             }
-
         	#container-awards{
                 margin-top: 40px;
     			background: rgb(227,227,227);
+                padding-bottom: 50px; 
         	}
-
             .awards-title{
                 padding-top: 40px; 
                 padding-bottom: 40px; 
@@ -89,6 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         	.award-img{
         		float:center;
                 width: 10%;
+                padding-bottom: 20px; 
         	}
         	.award-title{
         		float:center;
@@ -99,21 +97,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         		float:center;
         		font-weight:400;
         		font-size: 13px;
-        	}
 
+        	}
         	#container-sentence{
                 text-align: center;
     			background: white; 
         	}
         	.sentence{
         		font-size: 20px;
-                width: 30%;
+                width: 45%;
                 margin: 40px auto;
+                padding: 60px 0 40px 0;
         	}
+            .sentence-title{
+                font-size: 20px;
+                font-weight: 800;
+                padding: 0 0 40px 0;
+            }
 
         	#container-books{
                 margin-top: 40px;
     			background: black; 
+                background-color: rgb(40,40,40);
+                padding: 0 0 150px 0;
         	}
         	.titles-black{
         		font-weight: 800;
@@ -125,34 +131,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             td{
                 text-align: center;
             }
-            .sentence-title{
-                font-size: 20px;
-                font-weight: 800;
-            }
             .books{
                 color: white;
+                
             }
             .book-buy{
                 color: white;
                 background: #ec6262;
-                 display: inline-block;
-                 width: 50%;
+                display: inline-block;
+                width: 50%;
             }
             .book-img{
                 width: 50%;
                 margin-top: 40px;
             }
+            .book-title{
+                text-align: center;
+            }
 
         </style>
 </head>
-
-
-    
 
 <body>
     <toolbar-element></toolbar-element>
     <!--paper-button on-click="link_detail(1)" raised >DETAIL</paper-button-->
   	<div class="main-page">
+        <a name="author"></a>
 	    <div id="container-author">
 	    	<div id="author-avatar">
 	   			<img src="images/jkr_avatar.jpg" class="avatar">
@@ -170,6 +174,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
 	    </div>
 
+        <a name="awards"></a>
 	    <div id="container-awards">
 	    	<div class="titles"> 
 	    		<p class="awards-title">AWARDS AND RECOGNITIONS</p> 
@@ -212,6 +217,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	    	<div class="sentence-title"> JOANNE K. ROWLING </div>
 	    </div>
 
+        <a name="books"></a>
 	    <div id="container-books">
 	    	<div class="titles-black"> 
 	    		<p>BOOKS</p> 
@@ -281,17 +287,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <paper-button class="book-buy">Buy</paper-button>
                   </div>
                 </td>
-                
               </tr>
             </table>
 	    </div>
     </div>
-    <footer-element></footer-element>
 </body>
-    
-<footer>
 
-</footer>
+<a name="contactus"></a>
+<footer-element></footer-element>
 <script>
 function link_detail(book_id){
     window.location = "detail.html?id=" + book_id;
