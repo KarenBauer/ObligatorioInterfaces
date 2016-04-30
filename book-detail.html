@@ -1,5 +1,6 @@
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
@@ -68,7 +69,7 @@
 
 <template>
   <iron-ajax auto
-             url="api/books.json?[[ _selectedBookId ]]"
+             url="api/books/[[ _selectedBookId ]]/book_detail.json"
              params=""
              handle-as="json"
              last-response="{{ _booksArray }}"
@@ -128,10 +129,7 @@
         }
       },
       _selectedBookId: {
-        type: Number,
-        value: function() {
-          return 1;
-        }
+        type: Number
       }
     }
   });
