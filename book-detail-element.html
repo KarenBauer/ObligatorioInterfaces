@@ -1,10 +1,10 @@
-<link rel="import" href="../paper-card/paper-card.html">
-<link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-<dom-module id="book-detail">
+<dom-module id="book-detail-element">
     
 <style is="custom-style">
   .book{
@@ -14,7 +14,11 @@
     background-size: cover;
     float: left;
     padding-right: 70px;
-    margin-top: 50px;
+    margin-top: 60px;
+  }
+  img{
+    width: 300px;
+    height: auto;
   }
   .book-content{
     text-align: left;
@@ -25,7 +29,7 @@
   .book-header{
     font-family: Roboto;
     font-weight: bold;
-    font-size: 1.0rem;
+    font-size: 2.0rem;
     line-height: 1.8;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
@@ -46,6 +50,9 @@
     color: #f14646;
     font-weight: bold;
   }
+  .book-availability{
+    font-family: Roboto;
+  }
   .book-buy{
     float: none;
     display: block;
@@ -57,6 +64,7 @@
     color: white;
     background-color: black;
     border-radius: 4px;
+    margin-left: 0;
   }
   iron-icon.star {
     --iron-icon-width: 16px;
@@ -66,7 +74,6 @@
   iron-icon.star:last-of-type { color: var(--paper-grey-500); }
 </style>
 
-
 <template>
   <iron-ajax auto
              url="api/books/[[ _selectedBookId ]]/book_detail.json"
@@ -75,6 +82,7 @@
              last-response="{{ _booksArray }}"
              debounce-duration="300">
   </iron-ajax>
+
   <template is="dom-repeat"
                 items="[[ _booksArray ]]">
   <div class="book">
@@ -105,29 +113,9 @@
   <script>
     // element registration
     Polymer({
-      is: "book-detail",
+      is: "book-detail-element",
       properties: {
-      detail: {
-        type: Object,
-        // Use `value` to provides a default value for a property, by setting it
-        // on your element's prototype.
-        //
-        // If you provide a function, as we do here, Polymer will call that
-        // _per element instance_.
-        //
-        // We do that to ensure that each element gets its own copy of the
-        // value, rather than having it shared across all instances (via the
-        // prototype).
-        value: function() {
-          return {
-            title: "Harry Potter and the Sorcerer's Stone",
-            description: "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.",
-            price: "$450",
-            availability: "Available",
-            image: "images/book_1.jpg",
-          };
-        }
-      },
+      
       _selectedBookId: {
         type: Number
       }

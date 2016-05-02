@@ -14,28 +14,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="toolbar-element.html">
-    <link rel="import" href="book-detail.html">
-
+    <link rel="import" href="footer-element.html">
+    <link rel="import" href="book-detail-element.html">
   </head>
+
   <body>
-  <toolbar-element></toolbar-element>
-  <book-detail id="book_details" book-id=""></book-detail>
+    <toolbar-element></toolbar-element> 
+    <book-detail-element id="book_details" book-id="1"></book-detail-element> 
   </body>
+
   <script type="text/javascript">
     function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+      if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
     var book_id = getParameterByName("id");
-
     var book = document.getElementById("book_details");
-    book.book-id = book_id;
-
+    book._selectedBookId = book_id;
   </script>
+
 </html>
