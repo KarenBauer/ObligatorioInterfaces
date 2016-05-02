@@ -17,6 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  	<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
     <link rel="import" href="toolbar-element.html">
     <link rel="import" href="footer-element.html">
+    <link rel="import" href="book-element.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
     <link rel="import" href="bower_components/iron-image/iron-image.html">
 
@@ -81,7 +82,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
         	.awards{
         		border: 50px 0 0 30px;
-                display: inline;
+                display: flex;
+                text-align: center;
         	}
         	.award-img{
         		float:center;
@@ -97,7 +99,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         		float:center;
         		font-weight:400;
         		font-size: 13px;
-
         	}
         	#container-sentence{
                 text-align: center;
@@ -118,7 +119,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         	#container-books{
                 margin-top: 40px;
     			background: black; 
-                background-color: rgb(40,40,40);
+                background-color: rgb(60,60,60);
                 padding: 0 0 150px 0;
         	}
         	.titles-black{
@@ -132,8 +133,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 text-align: center;
             }
             .books{
-                color: white;
-                
+                color: white;  
             }
             .book-buy{
                 color: white;
@@ -148,13 +148,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             .book-title{
                 text-align: center;
             }
-
+            @media (max-width: 425px){
+                .avatar{
+                    width: 60%;
+                }
+                .author-description{
+                    border: 0;
+                    width: 100%
+                }
+                .author-data{
+                    border: 0;
+                    width: 100%
+                }
+                .awards{
+                    display: block;
+                }
+            }
+            @media (max-width: 768px){
+                .avatar{
+                    width: 50%;
+                }
+                .author-description{
+                    border: 0;
+                    width: 100%
+                }
+                .author-data{
+                    border: 0;
+                    width: 100%
+                }
+                .awards{
+                    display: block;
+                }
+                .award-img{
+                    padding-top: 20px; 
+                }
+            }
         </style>
 </head>
 
 <body>
     <toolbar-element></toolbar-element>
-    <!--paper-button on-click="link_detail(1)" raised >DETAIL</paper-button-->
   	<div class="main-page">
         <a name="author"></a>
 	    <div id="container-author">
@@ -180,35 +213,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	    		<p class="awards-title">AWARDS AND RECOGNITIONS</p> 
 	    	</div>
 		    <div class="awards">
-            <table style="width:100%">
-              <tr>
-                <td>
                 <div id="award-firstplace">
                     <img src="images/first_place.png" class="award-img">
                     <div class="award-title">FIRST PLACE</div>
-                    <p class="award-p">JK Rowling gain the first place of every writers contest that took place in Yale, Gloucestershire, Engalnd.</p>
-                    </div> 
-                </td>
-                <td>
+                    <p class="award-p">JK Rowling gain the first place of every writers contest that took place in Yale, Gloucestershire, England.</p>
+                </div> 
                 <div id="award-goldenoscar">
                     <img src="images/movie.png" class="award-img">
                     <div class="award-title">GOLDEN OSCAR</div>
                     <p class="award-p">The movies of the books she wrote won several awards. One of the most important is the Golden Oscar. Turn down for what ;)</p>
                 </div>
-                </td>
-                <td><div id="award-iabu">
+                <div id="award-iabu">
                     <img src="images/tick.png" class="award-img">
                     <div class="award-title">IABU</div>
                     <p class="award-p">She is recognized for being part of the international Association of Book Authors (IABU). She is in the 14th position in the ranking.</p>
                 </div>
-                </td> 
-                <td><div id="award-fanpage">
+                <div id="award-fanpage">
                     <img src="images/facebook.png" class="award-img">
                     <div class="award-title">BEST FAN PAGE</div>
                     <p class="award-p">Facebook give her an award for being the best fan page for writers and authors in the entire United States of America.</p>
-                </div></td> 
-              </tr>
-            </table>
+                </div>
 	    	</div>
 	    </div>
 
@@ -225,14 +249,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <table style="width:100%">
               <tr>
                 <td class="books">
-                <div>
-                    <img src="images/book_1.jpg" class="book-img">
-                    <div class="book-title">Harry Potter and the Sorcerer's Stone</div>
-                    <div class="book-desc">First book</div>
-                    </div> 
-                    <div class="buy-button">
-                    <paper-button onclick="link_detail(1)" class="book-buy">Buy</paper-button>
-                  </div>
+                    <book-element id="book1"></book-element>
                 </td>
                 <td class="books">
                 <div>
@@ -301,4 +318,12 @@ function link_detail(book_id){
 } 
 </script>
 
+ <script>
+    var book = document.getElementById("book1");
+    book._bookId = 1;
+</script>
+
 </html>
+
+
+

@@ -1,34 +1,57 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="bower_components/paper-button/paper-button.html">
-
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 <dom-module id="book-element">
   <template>
     <style>
 
-
     </style>
-  
-    
+
+    <template>
+      <iron-ajax auto
+                 url="api/books/[[ _bookId ]]/book_detail.json"
+                 params=""
+                 handle-as="json"
+                 last-response="{{ _booksArray }}"
+                 debounce-duration="300">
+      </iron-ajax>
+
+      <template is="dom-repeat"
+                    items="[[ _booksArray ]]">
+      <div class="books">
+        <div class="book-img">
+          <img src="[[item.image]]">
+        </div>
+        <div class="book-content">
+          <div class="book-title">[[item.title]]</div>
+          <p class="book-desc">[[item.description]]</p>
+          <div class="buy-button">
+            <paper-button onclick="link_detail(_bookId)" class="book-buy">Buy</paper-button>
+          </div>
+        </div> 
+      </div>
+      </template>
+    </template>
   </template>
 
   <script>
     // element registration
     Polymer({
       is: "book-element",
-
-      // add properties and methods on the element's prototype
-
       properties: {
-        // declare properties for the element's public API
-        greeting: {
-          type: String,
-          value: "Hello!"
-        }
+      
+      _bookId: {
+        type: Number
       }
-    });
+    }
+  });
   </script>
 
+  <script>
+    function link_detail(book_id){
+        window.location = "detail.html?id=" + _bookId;
+    } 
+  </script>
 </dom-module>
