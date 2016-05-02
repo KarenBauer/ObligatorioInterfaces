@@ -7,32 +7,54 @@
   <template>
     <style>
 
+      .books{
+        color: white; 
+        display: block; 
+        text-align: center;
+      }
+      .book-buy{
+        color: white;
+        background: #ec6262;
+        margin: auto;
+        text-align: center;
+      }
+      .book-title{
+        text-align: center;
+        width: 70%;
+        margin: auto;
+      }
+      img{
+        height: 300px;
+        width: auto;
+      }
+      .book-img{
+        margin: auto;
+        width: inherit;
+      }
+
     </style>
 
-    <template>
-      <iron-ajax auto
-                 url="api/books/[[ _bookId ]]/book_detail.json"
-                 params=""
-                 handle-as="json"
-                 last-response="{{ _booksArray }}"
-                 debounce-duration="300">
-      </iron-ajax>
+    <iron-ajax auto
+               url="api/books/[[ bookId ]]/book_detail.json"
+               params=""
+               handle-as="json"
+               last-response="{{ _booksArray }}"
+               debounce-duration="300">
+    </iron-ajax>
 
-      <template is="dom-repeat"
-                    items="[[ _booksArray ]]">
+    <template is="dom-repeat"
+              items="[[ _booksArray ]]">
       <div class="books">
         <div class="book-img">
           <img src="[[item.image]]">
         </div>
         <div class="book-content">
           <div class="book-title">[[item.title]]</div>
-          <p class="book-desc">[[item.description]]</p>
           <div class="buy-button">
-            <paper-button onclick="link_detail(_bookId)" class="book-buy">Buy</paper-button>
+            <paper-button onclick="link_detail(bookId)" class="book-buy">Buy</paper-button>
           </div>
         </div> 
       </div>
-      </template>
     </template>
   </template>
 
@@ -41,17 +63,16 @@
     Polymer({
       is: "book-element",
       properties: {
-      
-      _bookId: {
-        type: Number
-      }
+        bookId: {
+          type: Number
+        }
     }
   });
   </script>
 
   <script>
     function link_detail(book_id){
-        window.location = "detail.html?id=" + _bookId;
+        window.location = "detail.html?id=" + bookId;
     } 
   </script>
 </dom-module>

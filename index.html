@@ -16,8 +16,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
  	<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
     <link rel="import" href="toolbar-element.html">
-    <link rel="import" href="footer-element.html">
     <link rel="import" href="book-element.html">
+    <link rel="import" href="footer-element.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
     <link rel="import" href="bower_components/iron-image/iron-image.html">
 
@@ -249,61 +249,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <table style="width:100%">
               <tr>
                 <td class="books">
-                    <book-element id="book1"></book-element>
+                    <book-element book-id="1"></book-element>
                 </td>
                 <td class="books">
-                <div>
-                    <img src="images/book_2.jpg" class="book-img">
-                    <div class="book-title">Harry Potter and the Chamber of Secrets</div>
-                    <div class="book-desc">Second book</div>
-                    </div> 
-                    <div class="buy-button">
-                    <paper-button onclick="link_detail(2)" class="book-buy">Buy</paper-button>
-                  </div>
+                    <book-element book-id="2"></book-element>
                 </td>
                 <td class="books">
-                <div>
-                    <img src="images/book_3.jpeg" class="book-img">
-                    <div class="book-title">Harry Potter and the Prisoner of Azkaban</div>
-                    <div class="book-desc">Third book</div>
-                    </div> 
-                    <div class="buy-button">
-                    <paper-button onclick="link_detail(3)" class="book-buy">Buy</paper-button>
-                  </div>
+                    <book-element book-id="3"></book-element>
                 </td> 
-                
               </tr>
               <tr>
               <td class="books">
-                <div>
-                    <img src="images/book_4.jpg" class="book-img">
-                    <div class="book-title">Harry Potter and the Goblet of Fire</div>
-                    <div class="book-desc">Fourth book</div>
-                    </div> 
-                    <div class="buy-button">
-                    <paper-button onclick="link_detail(4)" class="book-buy">Buy</paper-button>
-                  </div>
-                </td>    
+                 <book-element book-id="4"></book-element>
+              </td>    
               <td class="books">
-                <div>
-                    <img src="images/book_5.jpg" class="book-img">
-                    <div class="book-title">Harry Potter and the Order of the Phoenix</div>
-                    <div class="book-desc">Fifth book</div>
-                    </div> 
-                    <div class="buy-button">
-                    <paper-button onclick="link_detail(5)" class="book-buy">Buy</paper-button>
-                  </div>
-                </td>
-                <td class="books">
-                <div>
-                    <img src="images/book_6.jpg" class="book-img">
-                    <div class="book-title">Harry Potter and the Half-Blood Prince</div>
-                    <div class="book-desc">Sixth book</div>
-                    </div> 
-                    <div class="buy-button">
-                    <paper-button onclick="link_detail(6)" class="book-buy">Buy</paper-button>
-                  </div>
-                </td>
+                 <book-element book-id="5"></book-element>
+              </td>    
+              <td class="books">
+                <book-element book-id="6"></book-element>
+              </td>
               </tr>
             </table>
 	    </div>
@@ -317,12 +281,6 @@ function link_detail(book_id){
     window.location = "detail.html?id=" + book_id;
 } 
 </script>
-
- <script>
-    var book = document.getElementById("book1");
-    book._bookId = 1;
-</script>
-
 </html>
 
 

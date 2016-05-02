@@ -14,15 +14,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="toolbar-element.html">
-    <link rel="import" href="footer-element.html">
     <link rel="import" href="book-detail-element.html">
+    <link rel="import" href="footer-element.html">
   </head>
 
-  <body>
-    <toolbar-element></toolbar-element> 
-    <footer-element></footer-element> 
-    <book-detail-element id="book_details"></book-detail-element> 
+<style type="text/css">
 
+</style>
+
+  <body>
+    <div class="detail-book">
+      <div class="nav"><toolbar-element></toolbar-element></div>
+      <div class="detail"><book-detail-element id="book_details"></book-detail-element></div>
+      <div class="foot"><footer-element></footer-element></div>
+    </div>
   </body>
 
   <script type="text/javascript">
