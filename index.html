@@ -120,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 margin-top: 40px;
     			background: black; 
                 background-color: rgb(60,60,60);
-                padding: 0 0 150px 0;
+                padding-top: 30px;
         	}
         	.titles-black{
         		font-weight: 800;
@@ -129,8 +129,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 text-align: center;
                 padding-top: 20px;
         	}
-            td{
-                text-align: center;
+            .book-elem{
+                float: left;
             }
             .books{
                 color: white;  
@@ -148,6 +148,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             .book-title{
                 text-align: center;
             }
+            .table-books{
+                display: inline-block;
+                width: 90%;
+                margin: 0 auto;
+                padding-top: 40px;
+                padding-left: 8%;
+            }
+            .foot-books{
+                width: 100%
+                display: inline-block;
+                margin: 0 auto;
+            }
             @media (max-width: 425px){
                 .avatar{
                     width: 60%;
@@ -163,6 +175,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 .awards{
                     display: block;
                 }
+                .table-books{
+                    padding-left: 15%;
+                }
+                
             }
             @media (max-width: 768px){
                 .avatar{
@@ -181,6 +197,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
                 .award-img{
                     padding-top: 20px; 
+                }
+                .table-books{
+                    padding-left: 15%;
+                }
+            }
+            @media (max-width: 320px){
+                .table-books{
+                    padding-left: 0%;
                 }
             }
         </style>
@@ -246,36 +270,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	    	<div class="titles-black"> 
 	    		<p>BOOKS</p> 
 	    	</div>
-            <table style="width:100%">
-              <tr>
-                <td class="books">
-                    <book-element book-id="1"></book-element>
-                </td>
-                <td class="books">
-                    <book-element book-id="2"></book-element>
-                </td>
-                <td class="books">
-                    <book-element book-id="3"></book-element>
-                </td> 
-              </tr>
-              <tr>
-              <td class="books">
-                 <book-element book-id="4"></book-element>
-              </td>    
-              <td class="books">
-                 <book-element book-id="5"></book-element>
-              </td>    
-              <td class="books">
-                <book-element book-id="6"></book-element>
-              </td>
-              </tr>
-            </table>
+            <div class="table-books">
+                <book-element book-id="1" class="book-elem"></book-element>
+                <book-element book-id="2" class="book-elem"></book-element>
+                <book-element book-id="3" class="book-elem"></book-element>
+                <book-element book-id="4" class="book-elem"></book-element>
+                <book-element book-id="5" class="book-elem"></book-element>
+                <book-element book-id="6" class="book-elem"></book-element>
+            </div>
 	    </div>
     </div>
 </body>
 <a name="contactus"></a>
-<footer-element></footer-element>
-
+<div class="foot-books">
+    <footer-element></footer-element>
+</div>
 <script>
 function link_detail(book_id){
     window.location = "detail.html?id=" + book_id;

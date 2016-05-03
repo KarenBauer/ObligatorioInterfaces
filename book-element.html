@@ -11,6 +11,9 @@
         color: white; 
         display: block; 
         text-align: center;
+        width: 400px;
+        height: auto;
+        min-height: 500px;
       }
       .book-buy{
         color: white;
@@ -20,8 +23,10 @@
       }
       .book-title{
         text-align: center;
-        width: 70%;
+        width: 50%;
         margin: auto;
+        padding-bottom: 10px;
+        padding-top: 5px;
       }
       img{
         height: 300px;
@@ -32,6 +37,11 @@
         width: inherit;
       }
 
+      @media (max-width: 425px){
+        .books{
+          width: 230px;
+        }
+      }
     </style>
 
     <iron-ajax auto
@@ -65,13 +75,13 @@
       properties: {
         bookId: {
           type: Number
-        }
-    }
+          }
+      }
   });
   </script>
 
   <script>
-    function link_detail(book_id){
+    function link_detail(){
         window.location = "detail.html?id=" + bookId;
     } 
   </script>
