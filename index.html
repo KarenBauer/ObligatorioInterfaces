@@ -148,6 +148,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             .book-title{
                 text-align: center;
             }
+            .table-books{
+                display: inline-block;
+                width: 90%;
+                margin: 0 auto;
+            }
             @media (max-width: 425px){
                 .avatar{
                     width: 60%;
@@ -246,30 +251,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	    	<div class="titles-black"> 
 	    		<p>BOOKS</p> 
 	    	</div>
-            <table style="width:100%">
-              <tr>
-                <td class="books">
-                    <book-element book-id="1"></book-element>
-                </td>
-                <td class="books">
-                    <book-element book-id="2"></book-element>
-                </td>
-                <td class="books">
-                    <book-element book-id="3"></book-element>
-                </td> 
-              </tr>
-              <tr>
-              <td class="books">
-                 <book-element book-id="4"></book-element>
-              </td>    
-              <td class="books">
-                 <book-element book-id="5"></book-element>
-              </td>    
-              <td class="books">
-                <book-element book-id="6"></book-element>
-              </td>
-              </tr>
-            </table>
+            <div class="table-books">
+                <book-element book-id="1" style="float: left;"></book-element>
+                <book-element book-id="2" style="float: left;"></book-element>
+                <book-element book-id="3" style="float: left;"></book-element>
+                <book-element book-id="4" style="float: left;"></book-element>
+                <book-element book-id="5" style="float: left;"></book-element>
+                <book-element book-id="6" style="float: left;"></book-element>
+            </div>
 	    </div>
     </div>
 </body>

@@ -11,6 +11,9 @@
         color: white; 
         display: block; 
         text-align: center;
+        width: 400px;
+        height: auto;
+        min-height: 500px;
       }
       .book-buy{
         color: white;
@@ -51,7 +54,7 @@
         <div class="book-content">
           <div class="book-title">[[item.title]]</div>
           <div class="buy-button">
-            <paper-button onclick="link_detail(bookId)" class="book-buy">Buy</paper-button>
+            <paper-button onclick="link_detail(1)" class="book-buy">Buy</paper-button>
           </div>
         </div> 
       </div>
@@ -65,13 +68,13 @@
       properties: {
         bookId: {
           type: Number
-        }
-    }
+          }
+      }
   });
   </script>
 
   <script>
-    function link_detail(book_id){
+    function link_detail(){
         window.location = "detail.html?id=" + bookId;
     } 
   </script>
