@@ -7,9 +7,15 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-image/iron-image.html">
-<link rel="import" href="../iron-media-query/iron-media-query.html">
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-image/iron-image.html">
+<link rel="import" href="bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/iron-input/iron-input.html">
+<link rel="import" href="bower_components/paper-input/paper-textarea.html">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 <!--
 A responsive comment card element
@@ -24,14 +30,12 @@ Example:
 
 <style>
   :host {
+      /*width: 73%;*/
+      margin: 0 auto; 
       display: block;
-      box-sizing: border-box;
-      margin: 1em;
-      padding: 1em;
       min-width: 240px;
       font-family: sans-serif;
-      border-radius: 2px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      
     }
     :host.small {
       margin: 1em 0;
@@ -41,99 +45,139 @@ Example:
       height: 2em;
       border-radius: 1em;
     }
+    .comment-container{
+      box-sizing: border-box;
+      border-radius: 1px;
+      /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+      box-shadow: 0 3px 2px -2px gray;
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
     #author-container {
       display: flex;
       align-items: center;
     }
     #author-name {
       font-size: small;
-      padding-left: 1em;
+      padding-left: 1em;     
+      font-style: italic;
+      font-weight: bold;
     }
     #comment-body {
       font-size: small;
       font-weight: 300;
       margin: 1em 1em 1em 3.5em;
     }
+    .name-input{
+      width: 20%;
+    }
+    .text-input{
+      width: 70%;
+    }
+    #btnAddComment{
+      font-weight: bold;
+      background-color: #ec6262;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .title{
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+    .text{
+      font-style: italic;
+      margin-bottom: 0;
+    }
+    .comments{
+      width: 70%;
+      margin: 0 auto;
+    }
+    #array-comments{
+      background-color: #f7f7f7;
+      width: 100%;
+      padding-top: 2em;
+      padding-bottom: 5em;
+    }
+
 
 </style>
   
-
 <template>
- <iron-media-query query="[[ mediaQuery ]]" 
-                      query-matches="{{ tooSmall }}"></iron-media-query>
-    <div id="author-container">
-      <iron-image src="[[ author.image ]]" sizing="cover"></iron-image>
-      <span id="author-name">[[ author.name ]]</span>
-    </div>
-    <p id="comment-body">
-      <content></content>
-    </p>
-</template>
+      <iron-ajax auto
+                 url="api/books/[[ _selectedBookId ]]/comments.json"
+                 params=""
+                 handle-as="json"
+                 last-response="{{ _booksArray }}"
+                 debounce-duration="300">
+      </iron-ajax>
+      <div class="comments">
+        <div class="title">Comments</div>
+        <div class="new-comment">
+          <p class="text">Leave your comment</p>
+          <div class="inputs">
+            <div class="name-input">
+              <paper-input label="Name" value={{NameText}}></paper-input>
+            </div>
+            <div class="text-input">
+              <span><paper-textarea label="Write your comment" value={{commentText}}></paper-textarea></span>
+            </div>
+          </div>
+          <paper-button id="btnAddComment" on-click="link_comment">
+            Add comment
+          </paper-button>
+        </div>
+      </div>
+
+        <div id="array-comments">
+        <template is="dom-repeat"
+                  items="[[ _booksArray ]]">
+          <div class="comment-container">
+            <div id="author-container">
+              <iron-image src="[[ item.image ]]" sizing="cover"></iron-image>
+              <span id="author-name">[[ item.name ]]</span>
+            </div>
+            <p id="comment-body">
+              <content>
+                <p>[[item.comment]]</p>
+              </content>
+            </p>
+          </div>
+            
+          </template>
+          </div>
+
+  </template>
 </dom-module>
 
 <script>
 
   Polymer({
-    is: 'comment-card',
-    properties: {
-      author: {
-        type: Object,
-        // Use `value` to provides a default value for a property, by setting it
-        // on your element's prototype.
-        //
-        // If you provide a function, as we do here, Polymer will call that
-        // _per element instance_.
-        //
-        // We do that to ensure that each element gets its own copy of the
-        // value, rather than having it shared across all instances (via the
-        // prototype).
-        value: function() {
-          return {
-            name:  'Dimitri Glazkov',
-            image: 'https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg',
-          };
+      is: "comment-card",
+      properties: {
+        
+        _selectedBookId: {
+          type: Number
+        },
+
+        _booksArray: {
+          type: Array
         }
       },
-      mediaQuery: {
-        type: String,
-        value: function() {
-          return "(max-width: 320px)";
-        }
-      },
-      tooSmall: {
-        type: Boolean,
-        observer: '_tooSmallChanged'
-      }
-    },
-
-    _tooSmallChanged: function(newValue, oldValue) {
-      this.toggleClass('small', newValue);
-    },
-
-    // Element Lifecycle
-
-    ready: function() {
-      // `ready` is called after all elements have been configured, but
-      // propagates bottom-up. This element's children are ready, but parents
-      // are not.
-      //
-      // This is the point where you should make modifications to the DOM (when
-      // necessary), or kick off any processes the element wants to perform.
-    },
-    attached: function() {
-      // `attached` fires once the element and its parents have been inserted
-      // into a document.
-      //
-      // This is a good place to perform any work related to your element's
-      // visual state or active behavior (measuring sizes, beginning animations,
-      // loading resources, etc).
-    },
-    detached: function() {
-      // The analog to `attached`, `detached` fires when the element has been
-      // removed from a document.
-      //
-      // Use this to clean up anything you did in `attached`.
-    }
+      link_comment: function(){
+        this.push('_booksArray', {
+          id: 1,
+          name: this.NameText,
+          comment: this.commentText,
+          image: "images/book_2.jpg"
+        })
+        this.commentText="";
+        this.NameText="";
+      } 
   });
+
 </script>
 

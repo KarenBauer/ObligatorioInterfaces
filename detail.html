@@ -15,18 +15,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="toolbar-element.html">
     <link rel="import" href="book-detail-element.html">
-    <link rel="import" href="footer-element.html">
+    <link rel="import" href="comment-card.html">
+
   </head>
-
-<style type="text/css">
-
-</style>
-
   <body>
     <div class="detail-book">
       <div class="nav"><toolbar-element></toolbar-element></div>
       <div class="detail"><book-detail-element id="book_details"></book-detail-element></div>
-      <div class="foot"><footer-element></footer-element></div>
+      <div class="comment"><comment-card id="book-comments"></comment-card></div>
     </div>
   </body>
 
@@ -44,6 +40,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var book_id = getParameterByName("id");
     var book = document.getElementById("book_details");
     book._selectedBookId = book_id;
+
+    var comment = document.getElementById("book-comments");
+    comment._selectedBookId = book_id;
   </script>
 
 </html>

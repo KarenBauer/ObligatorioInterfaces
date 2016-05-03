@@ -1,0 +1,19 @@
+[{
+  "id": 1,
+  "name": "Karen",
+  "comment": "Is the best book!!",
+  "image": "images/book_1.jpg"
+},
+{
+  "id": 1,
+  "name": "Matias",
+  "comment": "One of my favorites! I could read it over and over again!",
+  "image": "images/book_1.jpg"
+},
+{
+  "id": 1,
+  "name": "Diego",
+  "comment": "I adore the entire series and love the educational value and positive messages as well as the role model's decisions in the books.",
+  "image": "images/book_1.jpg"
+}]
+
