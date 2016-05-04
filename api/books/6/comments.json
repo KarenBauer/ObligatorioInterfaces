@@ -1,18 +1,18 @@
 [{
   "id": 1,
-  "name": "Jorge",
-  "comment": "Is the best book!!",
+  "name": "Pedro",
+  "comment": "This is a good book, does involve a bit of drinking and a few sexuall ineuendos in the book and movie.",
   "image": "images/people_1.jpg"
 },
 {
   "id": 1,
   "name": "Maria",
-  "comment": "One of my favorites! I could read it over and over again!",
+  "comment": "This book is one of the strongest installments in the Harry Potter franchise",
   "image": "images/people_2.jpg"
 },
 {
   "id": 1,
-  "name": "German",
-  "comment": "I adore the entire series and love the educational value and positive messages as well as the role model's decisions in the books.",
-  "image": "images/people_3.jpg"
+  "name": "Julieta",
+  "comment": "For me this book didn't have the same tone and fun that the others have.",
+  "image": "images/people_6.jpg"
 }]
