@@ -10,7 +10,7 @@
 <style is="custom-style">
   :host {
     display: block;
-    min-height: 580px;
+    /*min-height: 580px;*/
   }
   .book{
     margin-left: 200px;
@@ -79,11 +79,132 @@
   }
   iron-icon.star:last-of-type { color: var(--paper-grey-500); }
 
-   @media (max-width: 425px){
-   }
-
-   @media (max-width: 768px){
-   }
+  @media (max-width: 375px){
+      .book{
+        margin-left: 35px;
+        /*height: 1600px;*/
+      }
+      .book-content{
+        width: 90%;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      img{
+        width: 230px;
+      }
+      .book-buy{
+        margin: 0 auto;
+      }
+    }
+   @media (min-width: 376px) and (max-width: 430px){
+      .book{
+        margin-left: 70px;
+        /*height: 100px;*/
+      }
+      .book-content{
+        width: 80%;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      img{
+        width: 260px;
+      }
+      .book-buy{
+        margin: 0 auto;
+      }
+    }
+    @media (min-width: 431px) and (max-width: 695px){
+      .book{
+        margin-left: 150px;
+        /*height: 100px;*/
+      }
+      .book-content{
+        width: 80%;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      img{
+        width: 260px;
+      }
+      .book-buy{
+        margin: 0 auto;
+      }
+    }
+    @media (min-width: 696px) and (max-width: 955px){
+      .book{
+        margin-left: 30px;
+        /*height: 1600px;*/
+      }
+      .book-content{
+        width: 50%;
+        font-size: 1.5rem;
+      }
+      img{
+        width: 285px;
+      }
+      .book-header{
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .book-image {
+        padding-right: 40px;
+        margin-top: 70px;
+      }
+      .book-price{
+        font-size: 1.3rem;
+      }
+      .book-availability{
+        font-size: 1.1rem;
+      }
+      .book-description{
+        font-size: 0.95rem;
+      }
+      .book-buy{
+        width: 120px;
+        height: 35px;
+        font-size: 1rem;
+        line-height: 35px;
+        text-align: center; 
+        padding: 0px;
+      }
+    }
+    @media (min-width: 956px) and (max-width: 1024px){
+      .book-content{
+        width: 50%;
+        font-size: 1.5rem;
+      }
+      img{
+        width: 285px;
+      }
+      .book-header{
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .book-image {
+        padding-right: 40px;
+        margin-top: 70px;
+      }
+      .book-price{
+        font-size: 1.3rem;
+      }
+      .book-availability{
+        font-size: 1.1rem;
+      }
+      .book-description{
+        font-size: 0.95rem;
+      }
+      .book-buy{
+        width: 120px;
+        height: 35px;
+        font-size: 1rem;
+        line-height: 35px;
+        text-align: center; 
+        padding: 0px;
+      }
+      .book{
+        margin-left: 90px;
+      }
+    }
 </style>
 
   <iron-ajax auto

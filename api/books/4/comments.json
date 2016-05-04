@@ -1,0 +1,18 @@
+[{
+  "id": 1,
+  "name": "Javier",
+  "comment": "This book holds an excellent fantasy novel that really any age can enjoy",
+  "image": "images/people_3.jpg"
+},
+{
+  "id": 1,
+  "name": "Fernanda",
+  "comment": "This book is wonderful! One of my fave books!",
+  "image": "images/people_6.jpg"
+},
+{
+  "id": 1,
+  "name": "Pablo",
+  "comment": "it is a great book and very interesting and exciting there is always something interesting going on",
+  "image": "images/people_1.jpg"
+}]

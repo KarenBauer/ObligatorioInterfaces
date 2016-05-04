@@ -1,0 +1,18 @@
+[{
+  "id": 1,
+  "name": "Jorge",
+  "comment": "Scary, but better than the first too, don't be surprised if you find yourself reading over your child's shoulder.",
+  "image": "images/people_1.jpg"
+},
+{
+  "id": 1,
+  "name": "Gimena",
+  "comment": "This book has perhaps the best mystery entwined into its pages. ",
+  "image": "images/people_4.jpg"
+},
+{
+  "id": 1,
+  "name": "Maria",
+  "comment": "This book was very good. A little too long, though.",
+  "image": "images/people_2.jpg"
+}]
